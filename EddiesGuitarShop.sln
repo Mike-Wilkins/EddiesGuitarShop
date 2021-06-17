@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "EddiesGuitarShop\DataLayer.csproj", "{EBFF32C6-CFB5-4A57-A5DB-A349B135A84B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreMVC", "CoreMVC\CoreMVC.csproj", "{C32E4F28-D3D1-4140-AC97-45EA56B403EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBFF32C6-CFB5-4A57-A5DB-A349B135A84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFF32C6-CFB5-4A57-A5DB-A349B135A84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFF32C6-CFB5-4A57-A5DB-A349B135A84B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFF32C6-CFB5-4A57-A5DB-A349B135A84B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32E4F28-D3D1-4140-AC97-45EA56B403EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32E4F28-D3D1-4140-AC97-45EA56B403EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32E4F28-D3D1-4140-AC97-45EA56B403EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32E4F28-D3D1-4140-AC97-45EA56B403EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BE63A03-B907-4FF8-A3F7-6FD6ED0D6E79}
+	EndGlobalSection
+EndGlobal
