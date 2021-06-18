@@ -15,10 +15,20 @@ namespace DataLayer.Models
         public ManufacturerType Manufacturer { get; set; }
 
         [Required]
+        public string Model { get; set; }
+
+        [Required]
+        [DisplayName("Manufacturer's ID")]
+        public string ManufacturersId { get; set; }
+
+        [Required, EnumDataType(typeof(StoreName))]
+        public StoreName Store { get; set; }
+
+        [Required]
         public string Description { get; set; }
 
         [Required]
-        [RegularExpression(@"^\d+\.\d{0,2}$", ErrorMessage ="Enter price in the form: 123.95")]
+        [RegularExpression(@"^[1-9]\d{0,8}\.\d{1,2}$", ErrorMessage = "Enter price in the form: 123.95")]
         public double Price { get; set; }
 
         [Required,EnumDataType(typeof(Body))]
@@ -35,7 +45,7 @@ namespace DataLayer.Models
 
     public enum ManufacturerType
     {
-        Gibson,
+        Gibson=1,
         Fender,
         Ibanez,
         Jackson,
@@ -45,15 +55,25 @@ namespace DataLayer.Models
 
     public enum Body
     {
-        Electric,
+        Electric=1,
         Acoustic,
         SemiAcoustic
     }
 
     public enum StringType
     {
-        Six,
+        Six = 6,
         Seven,
         Eight
+    }
+
+    public enum StoreName
+    {
+        Edinburgh=1,
+        Glasgow,
+        Newcastle,
+        Birmingham,
+        Epsom,
+        Camden
     }
 }

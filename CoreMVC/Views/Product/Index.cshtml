@@ -15,9 +15,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.Manufacturer)
             </th>
-            <th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Model)
+            </th>*@
+                @*<th>
                 @Html.DisplayNameFor(model => model.Description)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.ManufacturersId)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store)
+            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
@@ -27,9 +37,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.StringNumber)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsLeftHanded)
-            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.IsLeftHanded)
+        </th>*@
             <th></th>
         </tr>
     </thead>
@@ -39,8 +49,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Manufacturer)
             </td>
-            <td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Model)
+            </td>*@
+                @*<td>
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufacturersId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Store)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
@@ -51,13 +70,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.StringNumber)
             </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.IsLeftHanded)
+        </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.IsLeftHanded)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary btn-sm">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-primary btn-sm" style="margin-left:5px">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-primary btn-sm" style="margin-left:5px">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary btn-sm">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-primary btn-sm" style="margin-left:5px">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm" style="margin-left:5px">Delete</a>
             </td>
         </tr>
 }

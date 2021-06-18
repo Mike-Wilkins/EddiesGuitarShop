@@ -19,13 +19,30 @@
                 <span asp-validation-for="Manufacturer" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ManufacturersId" class="control-label"></label>
+                <input asp-for="ManufacturersId" class="form-control"/>
+                <span asp-validation-for="ManufacturersId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <textarea asp-for="Description" class="form-control" style="resize:none"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Store" class="control-label"></label>
+                <select asp-for="Store" asp-items="Html.GetEnumSelectList<DataLayer.Models.StoreName>()" class="form-control">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="Store" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" placeholder="e.g. 123.95"/>
+                <input asp-for="Price" class="form-control" placeholder="e.g. 123.95" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,7 +62,7 @@
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        Left Handed  <input type="checkbox">
+                        Left Handed  <input asp-for="IsLeftHanded" type="checkbox">
                     </label>
                 </div>
             </div>

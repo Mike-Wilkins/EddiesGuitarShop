@@ -42,5 +42,23 @@ namespace CoreMVC.Controllers
             return View("Index", productList);
 
         }
+
+        //GET: Product/Delete
+        public async Task<IActionResult> Delete(int id)
+        {
+            var product = await _db.GetProduct(id);
+            return View(product);
+
+        }
+
+        //POST: Product/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            await _db.Delete(id);
+            var productList = await _db.GetAllProducts();
+            return View("Index",productList);
+        }
     }
 }

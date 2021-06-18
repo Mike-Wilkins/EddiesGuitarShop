@@ -3,14 +3,16 @@ using DataLayer.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210618141320_manufacturer-id-updated")]
+    partial class manufactureridupdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,9 +40,8 @@ namespace DataLayer.Migrations
                     b.Property<int>("Manufacturer")
                         .HasColumnType("int");
 
-                    b.Property<string>("ManufacturersId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("ManufacturersId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Model")
                         .IsRequired()
