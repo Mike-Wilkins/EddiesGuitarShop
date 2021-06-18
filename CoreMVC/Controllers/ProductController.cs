@@ -1,4 +1,5 @@
-﻿using DataLayer.Repositories;
+﻿using DataLayer.Models;
+using DataLayer.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,31 @@ namespace CoreMVC.Controllers
         {
             _db = db;
         }
-
-
         public async Task<IActionResult> Index()
         {
             var productList = await _db.GetAllProducts();
             return View(productList);
+        }
+
+        //GET: Product/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //POST: Product/Create
+        [HttpPost]
+        public async Task<IActionResult> Create(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            await _db.Add(product);
+            var productList = await _db.GetAllProducts();
+            return View("Index", productList);
+
         }
     }
 }
