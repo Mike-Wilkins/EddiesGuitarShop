@@ -18,6 +18,7 @@ namespace DataLayer.Models
         public string Description { get; set; }
 
         [Required]
+        [RegularExpression(@"^\d+\.\d{0,2}$", ErrorMessage ="Enter price in the form: 123.95")]
         public double Price { get; set; }
 
         [Required,EnumDataType(typeof(Body))]
