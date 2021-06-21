@@ -28,8 +28,9 @@ namespace DataLayer.Models
         public string Description { get; set; }
 
         [Required]
-        [RegularExpression(@"^[1-9]\d{0,8}\.\d{1,2}$", ErrorMessage = "Enter price in the form: 123.95")]
-        public double Price { get; set; }
+        //[RegularExpression(@"^[1-9]\d{0,8}\.\d{1,2}$", ErrorMessage = "Enter price in the form: 123.95")]
+        [RegularExpression(@"^[1-9]{1}[0-9]{0,3}(?:\.[0-9]{1,2})?$", ErrorMessage = "Enter price in the form: 123.95")]
+        public decimal Price { get; set; }
 
         [Required,EnumDataType(typeof(Body))]
         [DisplayName("Body Type")]
@@ -46,11 +47,14 @@ namespace DataLayer.Models
     public enum ManufacturerType
     {
         Gibson=1,
+        GibsonCustomShop,
         Fender,
+        FenderCustomShop,
         Ibanez,
         Jackson,
         Charvel,
-        Suhr
+        Suhr,
+        Tyler
     }
 
     public enum Body

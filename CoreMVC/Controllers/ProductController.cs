@@ -60,5 +60,14 @@ namespace CoreMVC.Controllers
             var productList = await _db.GetAllProducts();
             return View("Index",productList);
         }
+        //GET: Product/Edit
+        public async Task<IActionResult> Edit(int id)
+        {
+            var product = await _db.GetProduct(id);
+            return View(product);
+        }
+
+
+        //POST: Product/Edit
     }
 }
