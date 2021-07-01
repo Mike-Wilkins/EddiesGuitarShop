@@ -24,6 +24,7 @@ namespace CoreMVC
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["EddiesGuitarShopDbContext"]));
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             services.AddScoped<IProductRepository, SQLProductRepository>();
+            services.AddScoped<IAmpRepository, SQLAmpRepository>();
             services.AddControllersWithViews();
         }
 

@@ -35,7 +35,7 @@ namespace DataLayer.Models
 
         [Required, EnumDataType(typeof(SubCategory))]
         [DisplayName("Sub Category")]
-        public SubCategory BodyType { get; set; }
+        public SubCategory AmpType { get; set; }
     }
 
     public enum AmpManufacturerType

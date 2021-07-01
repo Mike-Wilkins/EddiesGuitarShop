@@ -1,4 +1,4 @@
-﻿@model DataLayer.Models.Product
+﻿@model DataLayer.Models.Amp
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,15 +6,15 @@
 
 
 <div class="row" style="margin-left: 20px">
-    <div class="col-md-5">
-        <h4>Edit Product</h4>
+    <div class="col-md-4">
+        <h4>Edit Amp</h4>
         <hr />
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProductId" />
             <div class="form-group">
                 <label asp-for="Manufacturer" class="control-label"></label>
-                <select asp-for="Manufacturer" asp-items="Html.GetEnumSelectList<DataLayer.Models.ManufacturerType>()" class="form-control">
+                <select asp-for="Manufacturer" asp-items="Html.GetEnumSelectList<DataLayer.Models.AmpManufacturerType>()" class="form-control">
                     <option selected="selected" value="">Please select</option>
                 </select>
                 <span asp-validation-for="Manufacturer" class="text-danger"></span>
@@ -47,23 +47,11 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BodyType" class="control-label"></label>
-                <select asp-for="BodyType" asp-items="Html.GetEnumSelectList<DataLayer.Models.Body>()" class="form-control">
+                <label asp-for="AmpType" class="control-label"></label>
+                <select asp-for="AmpType" class="form-control" asp-items="Html.GetEnumSelectList<DataLayer.Models.SubCategory>()">
                     <option selected="selected" value="">Please select</option>
                 </select>
-                <span asp-validation-for="BodyType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StringNumber" class="control-label"></label>
-                <select asp-for="StringNumber" asp-items="Html.GetEnumSelectList<DataLayer.Models.StringType>()" class="form-control">
-                    <option selected="selected" value="">Please select</option>
-                </select>
-                <span asp-validation-for="StringNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsLeftHanded" /> @Html.DisplayNameFor(model => model.IsLeftHanded)
-                </label>
+                <span asp-validation-for="AmpType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success" />
@@ -72,6 +60,7 @@
         </form>
     </div>
 </div>
+
 
 
 @section Scripts {

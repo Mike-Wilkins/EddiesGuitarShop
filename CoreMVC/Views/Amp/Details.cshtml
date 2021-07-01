@@ -1,15 +1,22 @@
-﻿@model DataLayer.Models.Product
+﻿@model DataLayer.Models.Amp
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
 }
 
 
-<div style="margin-left: 20px; margin-right:20px">
-    <hr />
-    <h3>Are you sure you want to delete this product?</h3>
+
+<div style="margin-left: 20px">
+    <h1>Details</h1>
+    <h4>Amp</h4>
     <hr />
     <dl class="row">
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>*@
+        @*<dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>*@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Manufacturer)
         </dt>
@@ -47,28 +54,15 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BodyType)
+            @Html.DisplayNameFor(model => model.AmpType)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BodyType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StringNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StringNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsLeftHanded)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsLeftHanded)
+            @Html.DisplayFor(model => model.AmpType)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ProductId" />
-        <input type="submit" value="Delete" class="btn btn-danger" />
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">Edit</a> |
         <a asp-action="Index" class="btn btn-primary" style="margin-left:10px">Back to List</a>
-    </form>
+    </div>
 </div>
+
