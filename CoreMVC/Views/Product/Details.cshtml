@@ -4,9 +4,11 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
-<div>
+
+<div style="margin-left: 20px">
+
+    <h1>Details</h1>
     <h4>Product</h4>
     <hr />
     <dl class="row">
@@ -65,8 +67,11 @@
             @Html.DisplayFor(model => model.IsLeftHanded)
         </dd>
     </dl>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-primary" style="margin-left:10px">Back to List</a>
+    </div>
+
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">Edit</a>
-    <a asp-action="Index" class="btn btn-primary" style="margin-left:10px">Back to List</a>
-</div>
+

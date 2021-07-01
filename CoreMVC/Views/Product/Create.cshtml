@@ -4,11 +4,11 @@
     ViewData["Title"] = "Create";
 }
 
-<h5>Add a new product</h5>
 
 <hr />
-<div class="row">
+<div class="row" style="margin-left: 20px">
     <div class="col-md-4">
+        <h5>Add a new product</h5>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ManufacturersId" class="control-label"></label>
-                <input asp-for="ManufacturersId" class="form-control"/>
+                <input asp-for="ManufacturersId" class="form-control" />
                 <span asp-validation-for="ManufacturersId" class="text-danger"></span>
             </div>
             <div class="form-group">
