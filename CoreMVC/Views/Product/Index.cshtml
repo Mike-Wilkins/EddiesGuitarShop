@@ -1,4 +1,6 @@
-﻿@model IEnumerable<DataLayer.Models.Product>
+﻿@*@model IEnumerable<DataLayer.Models.Product>*@
+
+@model DataLayer.ViewModels.ProductIndexViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -12,39 +14,18 @@
 <table class="table table-striped table-hover" style="margin-left: 20px">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.Model)
-            </th>*@
-                @*<th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.ManufacturersId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Store)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BodyType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StringNumber)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.IsLeftHanded)
-        </th>*@
+            <th>Manufacturer</th>
+            <th>Manufacturer ID</th>
+            <th>Store</th>
+            <th>Price</th>
+            <th>Body Type</th>
+            <th>String Number</th>
+           
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Product) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Manufacturer)

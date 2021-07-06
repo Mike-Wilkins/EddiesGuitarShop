@@ -1,5 +1,6 @@
 ﻿using DataLayer.Models;
 using DataLayer.Services;
+using DataLayer.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,20 @@ namespace DataLayer.Repositories
             return product;
         }
 
+
+
+
+
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
             var products = await _context.Products.OrderBy(p => p.ProductId).ToListAsync();
             return products;
         }
+
+
+
+
+
 
         public async Task<Product> GetProduct(int id)
         {

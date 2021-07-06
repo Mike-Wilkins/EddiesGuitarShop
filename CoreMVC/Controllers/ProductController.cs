@@ -1,5 +1,6 @@
 ﻿using DataLayer.Models;
 using DataLayer.Repositories;
+using DataLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,17 @@ namespace CoreMVC.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var productList = await _db.GetAllProducts();
-            return View(productList);
+
+            ProductIndexViewModel productIndexViewModel = new ProductIndexViewModel()
+            {
+                Product = await _db.GetAllProducts(),
+                ProductFilter = "Filter Test"
+            };
+
+            //var productList = await _db.GetAllProducts();
+            //return View(productList);
+
+            return View(productIndexViewModel);
         }
 
         //GET: Product/Create
