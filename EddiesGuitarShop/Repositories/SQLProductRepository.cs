@@ -1,10 +1,12 @@
-﻿using DataLayer.Models;
+﻿
+using DataLayer.Models;
 using DataLayer.Services;
 using DataLayer.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace DataLayer.Repositories
 {
@@ -30,20 +32,27 @@ namespace DataLayer.Repositories
             return product;
         }
 
-
-
-
-
-        public async Task<IEnumerable<Product>> GetAllProducts()
+        public async Task<IEnumerable<Product>> GetAllProducts(ProductIndexViewModel filterProduct)
         {
-            var products = await _context.Products.OrderBy(p => p.ProductId).ToListAsync();
-            return products;
+            var filter = filterProduct.FilterType.ToString();
+
+            var products = from p in _context.Products select p;
+
+            switch (filter)
+            {
+                case "PriceHighToLow":
+                    products = products.OrderByDescending(s => s.Price);
+                    break;
+                case "PriceLowToHigh":
+                    products = products.OrderBy(s => s.Price);
+                    break;
+                default:
+                    products = products.OrderBy(s => s.ProductId);
+                    break;
+            }
+            return await products.ToListAsync();
+
         }
-
-
-
-
-
 
         public async Task<Product> GetProduct(int id)
         {

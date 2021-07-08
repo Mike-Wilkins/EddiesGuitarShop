@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace CoreMVC.Controllers
 {
     public class ProductController : Controller
@@ -17,17 +18,13 @@ namespace CoreMVC.Controllers
         {
             _db = db;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(ProductIndexViewModel filterProduct)
         {
 
             ProductIndexViewModel productIndexViewModel = new ProductIndexViewModel()
             {
-                Product = await _db.GetAllProducts(),
-                ProductFilter = "Filter Test"
+                Product = await _db.GetAllProducts(filterProduct),          
             };
-
-            //var productList = await _db.GetAllProducts();
-            //return View(productList);
 
             return View(productIndexViewModel);
         }
@@ -40,7 +37,7 @@ namespace CoreMVC.Controllers
 
         //POST: Product/Create
         [HttpPost]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create(Product product, ProductIndexViewModel filterProduct)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +45,7 @@ namespace CoreMVC.Controllers
             }
 
             await _db.Add(product);
-            var productList = await _db.GetAllProducts();
+            var productList = await _db.GetAllProducts(filterProduct);
             return View("Index", productList);
 
         }
@@ -64,10 +61,10 @@ namespace CoreMVC.Controllers
         //POST: Product/Delete
         [HttpPost]
         [ActionName("Delete")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(int id, ProductIndexViewModel filterProduct)
         {
             await _db.Delete(id);
-            var productList = await _db.GetAllProducts();
+            var productList = await _db.GetAllProducts(filterProduct);
             return View("Index",productList);
         }
         //GET: Product/Edit
@@ -79,10 +76,10 @@ namespace CoreMVC.Controllers
 
         //POST: Product/Edit
         [HttpPost]
-        public async Task<IActionResult> Edit(Product product)
+        public async Task<IActionResult> Edit(Product product, ProductIndexViewModel filterProduct)
         {
             _db.Update(product);
-            var productList = await _db.GetAllProducts();
+            var productList = await _db.GetAllProducts(filterProduct);
             return View("Index", productList);
         }
 
