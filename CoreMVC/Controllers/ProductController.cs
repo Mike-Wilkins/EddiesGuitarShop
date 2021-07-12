@@ -39,15 +39,14 @@ namespace CoreMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Product product, ProductIndexViewModel filterProduct)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
             await _db.Add(product);
-            var productList = await _db.GetAllProducts(filterProduct);
-            return View("Index", productList);
+           
+            ProductIndexViewModel productIndexViewModel = new ProductIndexViewModel()
+            {
+                Product = await _db.GetAllProducts(filterProduct),
+            };
 
+            return View("Index", productIndexViewModel);
         }
 
         //GET: Product/Delete
@@ -64,8 +63,13 @@ namespace CoreMVC.Controllers
         public async Task<IActionResult> DeleteProduct(int id, ProductIndexViewModel filterProduct)
         {
             await _db.Delete(id);
-            var productList = await _db.GetAllProducts(filterProduct);
-            return View("Index",productList);
+          
+            ProductIndexViewModel productIndexViewModel = new ProductIndexViewModel()
+            {
+                Product = await _db.GetAllProducts(filterProduct),
+            };
+
+            return View("Index", productIndexViewModel);
         }
         //GET: Product/Edit
         public async Task<IActionResult> Edit(int id)
@@ -79,8 +83,13 @@ namespace CoreMVC.Controllers
         public async Task<IActionResult> Edit(Product product, ProductIndexViewModel filterProduct)
         {
             _db.Update(product);
-            var productList = await _db.GetAllProducts(filterProduct);
-            return View("Index", productList);
+
+            ProductIndexViewModel productIndexViewModel = new ProductIndexViewModel()
+            {
+                Product = await _db.GetAllProducts(filterProduct),
+            };
+
+            return View("Index", productIndexViewModel);
         }
 
         //GET: Product/Details

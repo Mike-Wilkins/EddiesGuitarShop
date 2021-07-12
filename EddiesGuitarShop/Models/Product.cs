@@ -13,8 +13,8 @@ namespace DataLayer.Models
 
         public string Category { get; set; } = "Guitar";
 
-        [Required, EnumDataType(typeof(ManufacturerType))]
-        public ManufacturerType Manufacturer { get; set; }
+        [Required]
+        public int Manufacturer { get; set; }
 
         [Required]
         public string Model { get; set; }
