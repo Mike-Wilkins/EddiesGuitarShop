@@ -12,11 +12,7 @@ namespace DataLayer.ViewModels
         [EnumDataType(typeof(FilterProduct))]
         public FilterProduct FilterType { get; set; }
 
-        //[EnumDataType(typeof(FilterByBrandName))]
-        //public FilterByBrandName FilterBrand { get; set; }
-
-        public int FilterBrand { get; set; }
-
+        public ManufacturerType FilterBrand { get; set; }
 
         public enum FilterProduct
         {
@@ -26,17 +22,5 @@ namespace DataLayer.ViewModels
             PriceHighToLow = 2
         }
 
-        public enum FilterByBrandName
-        {
-            Gibson = 1,
-            GibsonCustomShop,
-            Fender,
-            FenderCustomShop,
-            Ibanez,
-            Jackson,
-            Charvel,
-            Suhr,
-            Tyler
-        }
     }
 }

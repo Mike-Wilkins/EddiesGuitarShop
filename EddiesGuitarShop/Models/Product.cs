@@ -14,7 +14,7 @@ namespace DataLayer.Models
         public string Category { get; set; } = "Guitar";
 
         [Required]
-        public int Manufacturer { get; set; }
+        public ManufacturerType Manufacturer { get; set; }
 
         [Required]
         public string Model { get; set; }

@@ -18,7 +18,7 @@
         <div class="form-group">
             <form asp-action="Index" asp-controller="Product">
                 <div class="col-md-10">
-                    <select asp-for="FilterType" asp-items="Html.GetEnumSelectList<DataLayer.ViewModels.ProductIndexViewModel.FilterProduct>()" onchange="this.form.submit()" style="margin-top:30px">
+                    <select asp-for="FilterType" asp-items="Html.GetEnumSelectList<DataLayer.ViewModels.ProductIndexViewModel.FilterProduct>()" onchange="this.form.submit()" style="margin-top:30px">          
                         <option selected="selected" value="">Sort by ......</option>
                     </select>
                 </div>
@@ -28,8 +28,8 @@
     <div class="col-sm-4">
         <div class="form-group">
             <form asp-action="Index" asp-controller="Product">
-                <div class="col-md-10">
-                    <select asp-for="FilterBrand" asp-items="Html.GetEnumSelectList<DataLayer.ViewModels.ProductIndexViewModel.FilterByBrandName>()" onchange="this.form.submit()" style="margin-top:30px">
+                <div class="col-md-10">                
+                    <select asp-for="FilterBrand" asp-items="Html.GetEnumSelectList<DataLayer.Models.ManufacturerType>()" onchange="this.form.submit()" style="margin-top:30px">
                         <option selected="selected" value="">Sort by brand......</option>
                     </select>
                 </div>

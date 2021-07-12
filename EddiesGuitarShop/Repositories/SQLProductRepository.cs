@@ -39,8 +39,7 @@ namespace DataLayer.Repositories
             var filter = filterProduct.FilterType.ToString();
             var filterByBrand = filterProduct.FilterBrand.ToString();
 
-             var products = from p in _context.Products select p;
-
+            var products = from p in _context.Products select p;
 
             if (filter != "0")
             {
@@ -56,13 +55,13 @@ namespace DataLayer.Repositories
             }
             else if(filterByBrand != "0")
             {
-                products = products.Where(p => p.Manufacturer == filterProduct.FilterBrand);
-
+                products = products.Where(p => p.Manufacturer == filterProduct.FilterBrand);   
             }
             else
             {
                 products = products.OrderBy(p => p.ProductId);
             }
+
             return await products.ToListAsync();
 
         }
